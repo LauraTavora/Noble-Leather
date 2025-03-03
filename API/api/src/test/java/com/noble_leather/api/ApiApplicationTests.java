@@ -1,10 +1,10 @@
-package com.noble_leather.api_spring_app;
+package com.noble_leather.api;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ApiSpringAppApplicationTests {
+class ApiApplicationTests {
 
 	@Test
 	void contextLoads() {

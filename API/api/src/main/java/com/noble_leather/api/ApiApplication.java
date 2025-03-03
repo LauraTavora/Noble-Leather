@@ -1,13 +1,13 @@
-package com.noble_leather.api_spring_app;
+package com.noble_leather.api;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ApiSpringAppApplication {
+public class ApiApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ApiSpringAppApplication.class, args);
+		SpringApplication.run(ApiApplication.class, args);
 	}
 
 }
