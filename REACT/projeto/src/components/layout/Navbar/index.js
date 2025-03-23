@@ -1,16 +1,18 @@
-function Navbar (){
-    return(
-        <>
-          <header>
-            <div className="menu">
-                <button className="menu-btn">☰</button>
+import style from './Navbar.module.css';
+
+function Navbar() {
+    return (
+        <header className={style.header}>
+            <nav className={style.menu}>
+                <button className={style.menuBtn}>☰</button>
                 <h1>Noble Leather</h1>
-                <div className="icons">
-                <span>♡</span>
-                <span>🛒</span>
+                <div className={style.icons}>
+                    <span>♡</span>
+                    <span>🛒</span>
                 </div>
-            </div> </header>
-        </>
-    )
+            </nav>
+        </header>
+    );
 }
+
 export default Navbar;

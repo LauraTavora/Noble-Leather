@@ -6,29 +6,6 @@ body {
   text-align: center;
 }
 
-/* Cabeçalho */
-.menu {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-  background: white;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.menu-btn {
-  background: none;
-  border: none;
-  font-size: 24px;
-  cursor: pointer;
-}
-
-.icons span {
-  margin-left: 10px;
-  font-size: 20px;
-  cursor: pointer;
-}
-
 /* Banner */
 .banner {
   position: relative;
@@ -169,34 +146,5 @@ body {
   height: auto;
   margin: 0;
   padding: 0;
-}
-
-
-footer {
-  background-color: #D9D9D9;
-  height: 300px; /* Aumentando a altura do footer */
-  padding: 20px; /* Adicionando padding para espaçamento interno */
-  text-align: left; /* Alinhando o conteúdo à direita */
-}
-
-footer ul {
-  display: flex;
-  justify-content: flex-start; /* Coloca os itens à direita */
-  padding-right: 20px; /* Ajustando para um pequeno deslocamento à esquerda */
-  flex-direction: column;
-  padding: 2%;
-}
-
-footer li {
-  margin-left: 15px; /* Espaço entre os itens */
-}
-.pagamentosgg{
-  height: 50px;
-  width: 50px;
-}
-
-.pagamentosggg{
-  height: 50px;
-  width: 80px;
 }
 
