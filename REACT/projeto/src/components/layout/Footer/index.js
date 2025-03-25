@@ -1,4 +1,7 @@
 import FooterCss from './Footer.module.css';
+// import imagens from '../../../assets/mastercard.svg'
+// import imagens from '../../../assets/pix.svg'
+
 
 function Footer() {
     return (
