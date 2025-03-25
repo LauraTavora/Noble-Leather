@@ -12,11 +12,14 @@ import Curtida from '../../../assets/curtida.svg';  // Importando a imagem
 import Loja from '../../../assets/loja.svg';  // Importando a imagem
 import Frame from '../../../assets/Frame 12.svg';  // Importando a imagem
 import Style from './Jaqueta.module.css'
+import Navbar from '../../layout/Navbar';
 
 
 function Jaqueta(){
     return (
         <>
+
+        {/* <Navbar/> */}
           <section className={Style.banner}>
                 <img src={foto1} alt="Banner Jaquetas Femininas" />
                 <h2>Jaquetas</h2>
@@ -140,6 +143,8 @@ function Jaqueta(){
             </div>
             <br /><br /><hr /><br /><br /><br />
             
+            {/* <Footer/> */}
+
         </>
     );
 }

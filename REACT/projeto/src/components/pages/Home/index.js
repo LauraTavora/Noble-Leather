@@ -1,148 +1,99 @@
-function Home (){
+import searchIcon from '../../../assets/Search.svg';
+import desktopImage from '../../../assets/Desktop - 6.svg';
+import jacketImage from '../../../assets/image (222).svg';
+import bagImage from '../../../assets/image (33).svg';
+import beltImage from '../../../assets/image (44).svg';
+import dailyLifeImage from '../../../assets/Frame 111.svg';
+import Style from './Home.module.css'
+import { Link } from 'react-router-dom';
+
+
+
+function Home() {
     return (
         <>
+        {/* <Navbar/> */}
             <header>
-            <div className="menu">
-                <button className="menu-btn">☰</button>
-                <h1>Noble Leather</h1>
-                <div className="icons">
-                <span>♡</span>
-                <span>🛒</span>
-                </div>
-            </div>
-            </header><section className="banner">
-                <img src="assets/image 30.svg" alt="Banner Jaquetas Femininas" />
-                <h2 >Jaquetas</h2>
-                <h2 >Femininas</h2>
-            </section><nav className="categories">
-                <a href="#">Feminino</a>
-                <a href="#">Masculino</a>
-            </nav><section className="products">
-                <div className="product-card">
-                <div className="product-image">
-                    <img src="assets/image (1).svg" alt="Jaqueta de couro" />
-                    <span className="wishlist-icon"><img src="assets/curtida.svg" alt="" /></span>
-                    <span className="cart-icon"><img src="assets/loja.svg" alt="" /></span>
-                </div>
-                <div className="product-info">
-                    <h3>Jaqueta de couro sintético vintage</h3>
-                    <div className="stars"><img src="assets/estrelas.svg" alt="" /></div>
-                    <p className="price">R$ <span>90,00</span></p>
-                    <div className="quantity">
-                    <button>-</button>
-                    <span>1</span>
-                    <button>+</button>
+                <div className={Style.principal}>
+                    <h2>Noble leather</h2>
+                    <div className={Style.search_container}>
+                        <h2>Buscar</h2>
+                        <img src={searchIcon} alt="Ícone de busca" />
                     </div>
                 </div>
+                <div className={Style.categoria}>
+                    <Link to="/Bolsa">
+                        <h3>Bolsas</h3>
+                    </Link>
+                    <Link to="/jaquetas">
+                        <h3>Jaquetas</h3>
+                    </Link>
+                    <Link to="/cintos">
+                        <h3>Cintos</h3>
+                    </Link>
+                </div>
+            </header>
+
+            <main>
+                <img className={Style.imagem_tela} src={desktopImage} alt="Imagem principal" />
+
+                <div className={Style.titulos}>
+                    <h2>Escolha por Categoria</h2>
+                    <h3 className={Style.categoria_subtt}>Escolha seu favorito</h3>
                 </div>
 
+                <div className={Style.container_categorias}>
+                    <div className={Style.jaquetas}>
+                        <img src={jacketImage} alt="Jaquetas" />
+                        <p>Jaquetas</p>
+                    </div>
 
-                <div className="product-card">
-                <div className="product-image">
-                    <img src="assets/image (2).svg" alt="Jaqueta de couro" />
-                    <span className="wishlist-icon"><img src="assets/curtida.svg" alt="" /></span>
-                    <span className="cart-icon"><img src="assets/loja.svg" alt="" /></span>
-                </div>
-                <div className="product-info">
-                    <h3>Jaqueta de couro sintético vintage</h3>
-                    <div className="stars"><img src="assets/estrelas.svg" alt="" /></div>
-                    <p className="price">R$ <span>90,00</span></p>
-                    <div className="quantity">
-                    <button>-</button>
-                    <span>1</span>
-                    <button>+</button>
+                    <div className={Style.bolsas}>
+                        <img src={bagImage} alt="Bolsas" />
+                        <p>Bolsas</p>
+                    </div>
+
+                    <div className={Style.cintos}>
+                        <img src={beltImage} alt="Cintos" />
+                        <p>Cintos</p>
                     </div>
                 </div>
+
+                <div className={Style.titulos_precos}>
+                    <h2>Escolher por preço</h2>
+                    <h3 className={Style.categoria_subtt_precos}>Encontre o ideal</h3>
                 </div>
 
-                <div className="product-card">
-                <div className="product-image">
-                    <img src="assets/image (3).svg" alt="Jaqueta de couro" />
-                    <span className="wishlist-icon"><img src="assets/curtida.svg" alt="" /></span>
-                    <span className="cart-icon"><img src="assets/loja.svg" alt="" /></span>
-                </div>
-                <div className="product-info">
-                    <h3>Jaqueta de couro sintético vintage</h3>
-                    <div className="stars"><img src="assets/estrelas.svg" alt="" /></div>
-                    <p className="price">R$ <span>90,00</span></p>
-                    <div className="quantity">
-                    <button>-</button>
-                    <span>1</span>
-                    <button>+</button>
+                <div className={Style.container_precos}>
+                    <div className={Style.preco}>
+                        <h2>R$ 50,00</h2>
+                    </div>
+                    <div className={Style.preco}>
+                        <h2>R$ 90,00</h2>
+                    </div>
+                    <div className={Style.preco}>
+                        <h2>R$ 120,00</h2>
+                    </div>
+                    <div className={Style.preco}>
+                        <h2>R$ 160,00</h2>
+                    </div>
+                    <div className={Style.preco}>
+                        <h2>R$ 200,00</h2>
                     </div>
                 </div>
-                </div>
 
-                <div className="product-card">
-                <div className="product-image">
-                    <img src="assets/image (4).svg" alt="Jaqueta de couro" />
-                    <span className="wishlist-icon"><img src="assets/curtida.svg" alt="" /></span>
-                    <span className="cart-icon"><img src="assets/loja.svg" alt="" /></span>
-                </div>
-                <div className="product-info">
-                    <h3>Jaqueta de couro sintético vintage</h3>
-                    <div className="stars"><img src="assets/estrelas.svg" alt="" /></div>
-                    <p className="price">R$ <span>90,00</span></p>
-                    <div className="quantity">
-                    <button>-</button>
-                    <span>1</span>
-                    <button>+</button>
+                <div className={style.container_fotos}>
+                    <h2>Dia a dia com Noble Leather</h2>
+                    <div className={Style.imagens}>
+                        <img src={dailyLifeImage} alt="Fotos do dia a dia" />
                     </div>
                 </div>
-                </div>
+            </main>
 
+            {/* <Footer/> */}
 
-                <div className="product-card">
-                <div className="product-image">
-                    <img src="assets/Rectangle 16 (1).svg" alt="Jaqueta de couro" />
-                    <span className="wishlist-icon"><img src="assets/curtida.svg" alt="" /></span>
-                    <span className="cart-icon"><img src="assets/loja.svg" alt="" /></span>
-                </div>
-                <div className="product-info">
-                    <h3>Jaqueta de couro sintético vintage</h3>
-                    <div className="stars"><img src="assets/estrelas.svg" alt="" /></div>
-                    <p className="price">R$ <span>90,00</span></p>
-                    <div className="quantity">
-                    <button>-</button>
-                    <span>1</span>
-                    <button>+</button>
-                    </div>
-                </div>
-                </div>
-
-                <div className="product-card">
-                <div className="product-image">
-                    <img src="assets/image.svg" alt="Jaqueta de couro" />
-                    <span className="wishlist-icon"><img src="assets/curtida.svg" alt="" /></span>
-                    <span className="cart-icon"><img src="assets/loja.svg" alt="" /></span>
-                </div>
-                <div className="product-info">
-                    <h3>Jaqueta de couro sintético vintage</h3>
-                    <div className="stars"><img src="assets/estrelas.svg" alt="" /></div>
-                    <p className="price">R$ <span>90,00</span></p>
-                    <div className="quantity">
-                    <button>-</button>
-                    <span>1</span>
-                    <button>+</button>
-                    </div>
-                </div>
-                </div>
-            </section><div className="imagemGrande"><img src="assets/Frame 12.svg" alt="" /></div><br /><br /><hr /><br /><br /><br /><footer>
-                <ul>
-                <li>Sobre nós</li>
-                <li>Nossos produtos</li>
-                <li>Contato</li>
-                </ul>
-
-
-                <h5>FORMAS DE PAGAMENTO</h5>
-
-                <button><img className="pagamentosgg" src="assets/Captura_de_tela_2025-03-14_113742-removebg-preview.png" alt="" /></button>
-                <button><img className="pagamentosggg" src="assets/imagem_2025-03-14_113943836-removebg-preview.png" alt="" /></button>
-            </footer>
         </>
-    )
-
+    );
 }
 
 export default Home;

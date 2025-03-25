@@ -16,6 +16,8 @@ import Style from './Bolsa.module.css'
 function Bolsa(){
     return (
         <>
+        {/* <Navbar/> */}
+
           <section className={Style.banner}>
                 <img src={Banner} alt="Banner Jaquetas Femininas" />
                 <h2>Jaquetas</h2>
@@ -185,6 +187,7 @@ function Bolsa(){
                 </div>
             </section>
 
+            {/* <Footer/> */}
 
 
             <br /><br /><hr /><br /><br /><br />
