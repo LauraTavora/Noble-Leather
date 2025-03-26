@@ -1,11 +1,13 @@
-import searchIcon from '../../../assets/Search.svg';
-import desktopImage from '../../../assets/Desktop - 6.svg';
-import jacketImage from '../../../assets/image (222).svg';
-import bagImage from '../../../assets/image (33).svg';
-import beltImage from '../../../assets/image (44).svg';
-import dailyLifeImage from '../../../assets/Frame 111.svg';
+import searchIcon from './../../../assets/Search (1).svg';
+import desktopImage from './../../../assets/Desktop - 6 (3).svg';
+import jacketImage from './../../../assets/image (5) (1).svg';
+import bagImage from './../../../assets/image (6) (1).svg';
+import beltImage from './../../../assets/image (7) (1).svg';
+import dailyLifeImage from './../../../assets/Frame 11 (1).svg';
 import Style from './Home.module.css'
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
+
+
 
 
 
@@ -22,15 +24,9 @@ function Home() {
                     </div>
                 </div>
                 <div className={Style.categoria}>
-                    <Link to="/Bolsa">
-                        <h3>Bolsas</h3>
-                    </Link>
-                    <Link to="/jaquetas">
-                        <h3>Jaquetas</h3>
-                    </Link>
-                    <Link to="/cintos">
-                        <h3>Cintos</h3>
-                    </Link>
+                    <h3>Bolsas</h3>
+                    <h3>Jaquetas</h3>
+                    <h3>Cintos</h3>
                 </div>
             </header>
 
@@ -82,7 +78,7 @@ function Home() {
                     </div>
                 </div>
 
-                <div className={style.container_fotos}>
+                <div className={Style.container_fotos}>
                     <h2>Dia a dia com Noble Leather</h2>
                     <div className={Style.imagens}>
                         <img src={dailyLifeImage} alt="Fotos do dia a dia" />
@@ -90,7 +86,7 @@ function Home() {
                 </div>
             </main>
 
-            {/* <Footer/> */}
+            {/* <Footer image1={mastercard} image2={}/> */}
 
         </>
     );

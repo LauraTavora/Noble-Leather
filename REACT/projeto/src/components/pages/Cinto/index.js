@@ -13,6 +13,9 @@ import CartIcon from '../../../assets/loja.svg';
 import Stars from '../../../assets/estrelas.svg';
 import Style from './Cinto.module.css'
 
+
+
+
 function Bolsa(){
     return (
         
