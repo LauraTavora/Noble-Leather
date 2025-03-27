@@ -5,7 +5,7 @@ import bagImage from './../../../assets/image (6) (1).svg';
 import beltImage from './../../../assets/image (7) (1).svg';
 import dailyLifeImage from './../../../assets/Frame 11 (1).svg';
 import Style from './Home.module.css'
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 
@@ -24,10 +24,11 @@ function Home() {
                     </div>
                 </div>
                 <div className={Style.categoria}>
-                    <h3>Bolsas</h3>
-                    <h3>Jaquetas</h3>
-                    <h3>Cintos</h3>
+                    <h3><Link to="/Bolsa">Bolsas</Link></h3>
+                    <h3><Link to="/jaqueta">Jaquetas</Link></h3>
+                    <h3><Link to="/Cinto">Cintos</Link></h3>
                 </div>
+
             </header>
 
             <main>
