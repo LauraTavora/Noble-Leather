@@ -1,0 +1,148 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f4f4f4;
+    padding: 20px;
+
+}
+.menu_icon {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.icons span {
+    margin-left: 15px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.product_container {
+    display: flex;
+    background: white;
+    padding: 50px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.image_section {
+    flex: 1;
+    text-align: center;
+}
+
+.image_section img {
+    width: 300px;
+    border-radius: 10px;
+}
+
+.color_options {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.color_options img {
+    width: 50px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.info_section {
+    flex: 1;
+    padding: 20px;
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.stars {
+    color: gold;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.price {
+    font-size: 22px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.sizes {
+    margin-top: 15px;
+}
+
+.sizes button {
+    margin-left: 5px;
+    padding: 5px 10px;
+    border: 1px solid #333;
+    background: white;
+    cursor: pointer;
+}
+
+.sizes button:hover {
+    background: #ddd;
+}
+.info_section {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.quantity {
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;  /* Centraliza a quantidade horizontalmente */
+}
+
+.quantity button {
+    padding: 5px 10px;
+    margin: 0 10px;  /* Aumenta o espaço entre os botões */
+    cursor: pointer;
+    border: 1px solid #333;
+}
+
+.quantity .quantity_value {
+    min-width: 20px;
+    text-align: center;
+}
+
+
+.buttons {
+    margin-top: 20px;
+}
+
+.buttons .buy {
+    background: #442d1a;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+}
+
+.buttons .cart {
+    background: #b18256;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.envio {
+    color: green;
+}
+
+main{
+    margin-top: 10%;
+}
