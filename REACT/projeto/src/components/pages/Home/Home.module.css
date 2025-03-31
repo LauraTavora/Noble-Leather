@@ -42,13 +42,15 @@ header{
     width: 100%;
 }
 
-.categoria{
+
+.categoria {
     display: flex;
     justify-content: space-around;
     border-top: 1px solid brown;
-    height: 30px;
-    padding: 15px;
+    height: 40px; /* Aumentei a altura para que o conteúdo tenha mais espaço */
+    align-items: center; /* Alinha os links verticalmente */
     font-size: 20px;
+    padding: 0 10px; /* Ajustei o padding para não ter um grande espaçamento lateral */
 }
 
 .titulos{

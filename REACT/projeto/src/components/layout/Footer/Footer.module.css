@@ -1,37 +1,61 @@
 .footer {
-    background-color: #D9D9D9;
-    height: 300px;
-    padding: 20px;
-    text-align: left;
-  }
-  
-  .navList {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    padding: 2%;
-  }
-  
-  .navList li {
-    margin-left: 15px;
-  }
-  
-  .paymentTitle {
-    margin-top: 20px;
-  }
-  
-  .paymentMethods {
-    display: flex;
-    gap: 10px;
-    margin-top: 10px;
-  }
-  
-  .pagamentosgg {
-    height: 50px;
-    width: 50px;
-  }
-  
-  .pagamentosggg {
-    height: 50px;
-    width: 80px;
-  }
+  background-color: #D9D9D9;
+  height: 200px;
+  padding: 20px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.navList {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 2%;
+}
+
+.navList li {
+  margin-left: 15px;
+}
+
+.paymentTitle {
+  margin-top: 20px;
+}
+
+.paymentContainer {
+  display: flex;
+  align-items: center; /* Alinha os elementos verticalmente */
+  justify-content: space-between; /* Espaço entre os elementos */
+  margin-top: 10px;
+  padding-right: 20px;
+  width: 100%;
+}
+
+.paymentMethods {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.extraImages {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-left: auto; /* Empurra para a direita */
+}
+
+.pagamentosgg, .imagemM {
+  height: 50px;
+  width: 50px;
+}
+
+.imagemM {
+  width: 50px;
+  height: 50px;
+}
+
+.pagamentosggg{
+  width: 80px;
+  height: 50px;
+}
