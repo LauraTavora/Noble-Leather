@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import Banner from '../../../assets/Group 44.svg';
 import Image15 from '../../../assets/image (15).svg';
 import Image16 from '../../../assets/image (16).svg';
@@ -11,20 +12,45 @@ import Image23 from '../../../assets/image (23).svg';
 import WishlistIcon from '../../../assets/curtida.svg';
 import CartIcon from '../../../assets/loja.svg';
 import Stars from '../../../assets/estrelas.svg';
-import Style from './Cinto.module.css'
+import Style from './Cinto.module.css';
 
+function Bolsa() {
+    const [quantities, setQuantities] = useState({
+        15: 1,
+        16: 1,
+        17: 1,
+        18: 1,
+        19: 1,
+        20: 1,
+        21: 1,
+        22: 1,
+        23: 1,
+    });
 
+    const handleQuantityChange = (id, type) => {
+        setQuantities(prev => {
+            const newQuantity = type === 'increment' ? prev[id] + 1 : Math.max(1, prev[id] - 1);
+            return { ...prev, [id]: newQuantity };
+        });
+    };
 
+    const products = [
+        { id: 15, image: Image15, name: "Jaqueta de couro sintético vintage", price: 90 },
+        { id: 16, image: Image16, name: "Jaqueta de couro sintético vintage", price: 90 },
+        { id: 17, image: Image17, name: "Jaqueta de couro sintético vintage", price: 90 },
+        { id: 18, image: Image18, name: "Jaqueta de couro sintético vintage", price: 90 },
+        { id: 19, image: Image19, name: "Jaqueta de couro sintético vintage", price: 90 },
+        { id: 20, image: Image20, name: "Jaqueta de couro sintético vintage", price: 90 },
+        { id: 21, image: Image21, name: "Jaqueta de couro sintético vintage", price: 90 },
+        { id: 22, image: Image22, name: "Jaqueta de couro sintético vintage", price: 90 },
+        { id: 23, image: Image23, name: "Jaqueta de couro sintético vintage", price: 90 },
+    ];
 
-function Bolsa(){
     return (
-        
         <>
-          {/* <Navbar/> */}
-
-          <section className={Style.banner}>
+            <section className={Style.banner}>
                 <img src={Banner} alt="Banner Jaquetas Femininas" />
-                <h2>Jaquetas</h2>
+                <h2>Cintos</h2>
                 <h2>Femininas</h2>
             </section>
             <nav className={Style.categories}>
@@ -32,175 +58,28 @@ function Bolsa(){
                 <a href="#">Masculino</a>
             </nav>
             <section className={Style.products}>
-                <div className={Style.product_card}>
-                    <div className={Style.product_image}>
-                        <img src={Image15} alt="Jaqueta de couro" />
-                        <span className={Style.wishlist_icon}><img src={WishlistIcon} alt="" /></span>
-                        <span className={Style.cart_icon}><img src={CartIcon} alt="" /></span>
-                    </div>
-                    <div className={Style.product_info}>
-                        <h3>Jaqueta de couro sintético vintage</h3>
-                        <div className={Style.stars}><img src={Stars} alt="" /></div>
-                        <p className={Style.price}>R$ <span>90,00</span></p>
-                        <div className={Style.quantity}>
-                            <button>-</button>
-                            <span>1</span>
-                            <button>+</button>
+                {products.map(product => (
+                    <div key={product.id} className={Style.product_card}>
+                        <div className={Style.product_image}>
+                            <img src={product.image} alt={product.name} />
+                            <span className={Style.wishlist_icon}><img src={WishlistIcon} alt="" /></span>
+                            <span className={Style.cart_icon}><img src={CartIcon} alt="" /></span>
+                        </div>
+                        <div className={Style.product_info}>
+                            <h3>{product.name}</h3>
+                            <div className={Style.stars}><img src={Stars} alt="" /></div>
+                            <p className={Style.price}>R$ <span>{product.price.toFixed(2)}</span></p>
+                            <div className={Style.quantity}>
+                                <button onClick={() => handleQuantityChange(product.id, 'decrement')}>-</button>
+                                <span>{quantities[product.id]}</span>
+                                <button onClick={() => handleQuantityChange(product.id, 'increment')}>+</button>
+                            </div>
                         </div>
                     </div>
-                </div>
-
-                <div className={Style.product_card}>
-                    <div className={Style.product_image}>
-                        <img src={Image16} alt="Jaqueta de couro" />
-                        <span className={Style.wishlist_icon}><img src={WishlistIcon} alt="" /></span>
-                        <span className={Style.cart_icon}><img src={CartIcon} alt="" /></span>
-                    </div>
-                    <div className={Style.product_info}>
-                        <h3>Jaqueta de couro sintético vintage</h3>
-                        <div className={Style.stars}><img src={Stars} alt="" /></div>
-                        <p className={Style.price}>R$ <span>90,00</span></p>
-                        <div className={Style.quantity}>
-                            <button>-</button>
-                            <span>1</span>
-                            <button>+</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div className={Style.product_card}>
-                    <div className={Style.product_image}>
-                        <img src={Image17} alt="Jaqueta de couro" />
-                        <span className={Style.wishlist_icon}><img src={WishlistIcon} alt="" /></span>
-                        <span className={Style.cart_icon}><img src={CartIcon} alt="" /></span>
-                    </div>
-                    <div className={Style.product_info}>
-                        <h3>Jaqueta de couro sintético vintage</h3>
-                        <div className={Style.stars}><img src={Stars} alt="" /></div>
-                        <p className={Style.price}>R$ <span>90,00</span></p>
-                        <div className={Style.quantity}>
-                            <button>-</button>
-                            <span>1</span>
-                            <button>+</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div className={Style.product_card}>
-                    <div className={Style.product_image}>
-                        <img src={Image18} alt="Jaqueta de couro" />
-                        <span className={Style.wishlist_icon}><img src={WishlistIcon} alt="" /></span>
-                        <span className={Style.cart_icon}><img src={CartIcon} alt="" /></span>
-                    </div>
-                    <div className={Style.product_info}>
-                        <h3>Jaqueta de couro sintético vintage</h3>
-                        <div className={Style.stars}><img src={Stars} alt="" /></div>
-                        <p className={Style.price}>R$ <span>90,00</span></p>
-                        <div className={Style.quantity}>
-                            <button>-</button>
-                            <span>1</span>
-                            <button>+</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div className={Style.product_card}>
-                    <div className={Style.product_image}>
-                        <img src={Image19} alt="Jaqueta de couro" />
-                        <span className={Style.wishlist_icon}><img src={WishlistIcon} alt="" /></span>
-                        <span className={Style.cart_icon}><img src={CartIcon} alt="" /></span>
-                    </div>
-                    <div className={Style.product_info}>
-                        <h3>Jaqueta de couro sintético vintage</h3>
-                        <div className={Style.stars}><img src={Stars} alt="" /></div>
-                        <p className={Style.price}>R$ <span>90,00</span></p>
-                        <div className={Style.quantity}>
-                            <button>-</button>
-                            <span>1</span>
-                            <button>+</button>
-                        </div>
-                    </div>
-                </div>
-                <div className={Style.product_card}>
-                    <div className={Style.product_image}>
-                        <img src={Image20} alt="Jaqueta de couro" />
-                        <span className={Style.wishlist_icon}><img src={WishlistIcon} alt="" /></span>
-                        <span className={Style.cart_icon}><img src={CartIcon} alt="" /></span>
-                    </div>
-                    <div className={Style.product_info}>
-                        <h3>Jaqueta de couro sintético vintage</h3>
-                        <div className={Style.stars}><img src={Stars} alt="" /></div>
-                        <p className={Style.price}>R$ <span>90,00</span></p>
-                        <div className={Style.quantity}>
-                            <button>-</button>
-                            <span>1</span>
-                            <button>+</button>
-                        </div>
-                    </div>
-                </div>
-                <div className={Style.product_card}>
-                    <div className={Style.product_image}>
-                        <img src={Image21} alt="Jaqueta de couro" />
-                        <span className={Style.wishlist_icon}><img src={WishlistIcon} alt="" /></span>
-                        <span className={Style.cart_icon}><img src={CartIcon} alt="" /></span>
-                    </div>
-                    <div className={Style.product_info}>
-                        <h3>Jaqueta de couro sintético vintage</h3>
-                        <div className={Style.stars}><img src={Stars} alt="" /></div>
-                        <p className={Style.price}>R$ <span>90,00</span></p>
-                        <div className={Style.quantity}>
-                            <button>-</button>
-                            <span>1</span>
-                            <button>+</button>
-                        </div>
-                    </div>
-                </div>
-                <div className={Style.product_card}>
-                    <div className={Style.product_image}>
-                        <img src={Image22} alt="Jaqueta de couro" />
-                        <span className={Style.wishlist_icon}><img src={WishlistIcon} alt="" /></span>
-                        <span className={Style.cart_icon}><img src={CartIcon} alt="" /></span>
-                    </div>
-                    <div className={Style.product_info}>
-                        <h3>Jaqueta de couro sintético vintage</h3>
-                        <div className={Style.stars}><img src={Stars} alt="" /></div>
-                        <p className={Style.price}>R$ <span>90,00</span></p>
-                        <div className={Style.quantity}>
-                            <button>-</button>
-                            <span>1</span>
-                            <button>+</button>
-                        </div>
-                    </div>
-                </div>
-                <div className={Style.product_card}>
-                    <div className={Style.product_image}>
-                        <img src={Image23} alt="Jaqueta de couro" />
-                        <span className={Style.wishlist_icon}><img src={WishlistIcon} alt="" /></span>
-                        <span className={Style.cart_icon}><img src={CartIcon} alt="" /></span>
-                    </div>
-                    <div className={Style.product_info}>
-                        <h3>Jaqueta de couro sintético vintage</h3>
-                        <div className={Style.stars}><img src={Stars} alt="" /></div>
-                        <p className={Style.price}>R$ <span>90,00</span></p>
-                        <div className={Style.quantity}>
-                            <button>-</button>
-                            <span>1</span>
-                            <button>+</button>
-                        </div>
-                    </div>
-                </div>
+                ))}
             </section>
-
-            {/* <Footer/> */}
-
-
-            <br /><br /><hr /><br /><br /><br />
-            
         </>
     );
 }
 
 export default Bolsa;
-
-
-

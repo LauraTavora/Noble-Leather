@@ -8,6 +8,7 @@ import pagamento4 from '../../../assets/Mastercard-logo 1.svg';
 import pagamento5 from '../../../assets/logo-pix-1920x1080 1.svg';
 
 
+
 function Footer() {
     return (
         <footer className={FooterCss.footer}>
@@ -35,5 +36,6 @@ function Footer() {
         </footer>
     );
 }
+
 
 export default Footer;
