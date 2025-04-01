@@ -20,11 +20,17 @@ function App() {
         <Route path="/cinto" element={<Cinto />} />
         <Route path="/compra" element={<Compra />} /> 
         <Route path="/jaqueta" element={<Jaqueta />} />
-        <Route path="/carrinho" element={<Carrinho />} /> {/* Adicionei a rota correta para Carrinho */}
+        <Route path="/carrinho" element={<Carrinho />} />
+        <Route path="/favorito" element={<Favorito />} /> {/* Adicionada a rota para Favorito */}
+        <Route path="/favorito" element={<Favorito />} /> {/* Adicionada a rota para Favorito */}
+        <Route path="/favorito" element={<Favorito />} /> {/* Adicionada a rota para Favorito */}
+        <Route path="/favorito" element={<Favorito />} /> {/* Adicionada a rota para Favorito */}
+
       </Routes>
       <Footer /> {/* O Footer estará disponível em todas as páginas */}
     </Router>
   );
 }
+
 
 export default App;

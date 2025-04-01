@@ -13,8 +13,10 @@ import WishlistIcon from '../../../assets/curtida.svg';
 import CartIcon from '../../../assets/loja.svg';
 import Stars from '../../../assets/estrelas.svg';
 import Style from './Bolsa.module.css';
+import { useNavigate } from 'react-router-dom';
 
 function Bolsa() {
+  const navigate = useNavigate();
   const [quantities, setQuantities] = useState({
     5: 1,
     6: 1,
@@ -34,6 +36,15 @@ function Bolsa() {
     });
   };
 
+  const handleProductClick = (image) => {
+    sessionStorage.setItem('imagem', image);
+    navigate('/compra');
+  };
+
+  const handleFavoriteClick = () => {
+    navigate('/favorito');
+  };
+
   const products = [
     { id: 5, image: Image5, name: "Jaqueta de couro sintético vintage", price: 90 },
     { id: 6, image: Image6, name: "Jaqueta de couro sintético vintage", price: 90 },
@@ -50,7 +61,7 @@ function Bolsa() {
     <>
       <section className={Style.banner}>
         <img src={Banner} alt="Banner Jaquetas Femininas" />
-        <h2>Jaquetas</h2>
+        <h2>Bolsas</h2>
         <h2>Femininas</h2>
       </section>
       <nav className={Style.categories}>
@@ -60,9 +71,11 @@ function Bolsa() {
       <section className={Style.products}>
         {products.map(product => (
           <div key={product.id} className={Style.product_card}>
-            <div className={Style.product_image}>
+            <div className={Style.product_image} onClick={() => handleProductClick(product.image)}>
               <img src={product.image} alt={product.name} />
-              <span className={Style.wishlist_icon}><img src={WishlistIcon} alt="" /></span>
+              <span className={Style.wishlist_icon} onClick={(e) => { e.stopPropagation(); handleFavoriteClick(); }}>
+                <img src={WishlistIcon} alt="Favoritar" />
+              </span>
               <span className={Style.cart_icon}><img src={CartIcon} alt="" /></span>
             </div>
             <div className={Style.product_info}>

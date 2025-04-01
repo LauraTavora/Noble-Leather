@@ -59,6 +59,10 @@ function Jaqueta() {
     sessionStorage.setItem('imagem', image);  
     navigate('/compra');
   };
+  const handleFavoriteClick = () => {
+    navigate('/favorito');
+  };
+  
 
   return (
     <>
@@ -82,7 +86,9 @@ function Jaqueta() {
           >
             <div className={Style.product_image}>
               <img src={product.image} alt={product.name} />
-              <span className={Style.wishlist_icon}><img src={Curtida} alt="Favoritar" /></span>
+              <span className={Style.wishlist_icon} onClick={(e) => { e.stopPropagation(); handleFavoriteClick(); }}>
+                <img src={Curtida} alt="Favoritar" />
+              </span>
               <span className={Style.cart_icon}><img src={Loja} alt="Adicionar ao carrinho" /></span>
             </div>
             <div className={Style.product_info}>

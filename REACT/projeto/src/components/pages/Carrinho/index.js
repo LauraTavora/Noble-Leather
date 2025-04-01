@@ -11,6 +11,7 @@ import Image18 from '../../../assets/image (18).svg';
 import Image8 from '../../../assets/image (8).svg';
 import Image9 from '../../../assets/image (9).svg';
 import Image10 from '../../../assets/image (10).svg';
+import { useNavigate } from 'react-router-dom';
 
 const products = [  
     {
@@ -97,6 +98,7 @@ const products = [
   
 
 function Carrinho() {
+  
   return (
     <div className={style.container}>
       <header className={style.header}>

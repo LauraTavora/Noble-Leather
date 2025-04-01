@@ -13,8 +13,11 @@ import WishlistIcon from '../../../assets/curtida.svg';
 import CartIcon from '../../../assets/loja.svg';
 import Stars from '../../../assets/estrelas.svg';
 import Style from './Cinto.module.css';
+import { useNavigate } from 'react-router-dom';
 
 function Bolsa() {
+    const navigate = useNavigate();
+
     const [quantities, setQuantities] = useState({
         15: 1,
         16: 1,
@@ -34,6 +37,11 @@ function Bolsa() {
         });
     };
 
+    const handleProductClick = (image) => {
+        sessionStorage.setItem('imagem', image);
+        navigate('/compra');
+    };
+
     const products = [
         { id: 15, image: Image15, name: "Jaqueta de couro sintético vintage", price: 90 },
         { id: 16, image: Image16, name: "Jaqueta de couro sintético vintage", price: 90 },
@@ -45,6 +53,10 @@ function Bolsa() {
         { id: 22, image: Image22, name: "Jaqueta de couro sintético vintage", price: 90 },
         { id: 23, image: Image23, name: "Jaqueta de couro sintético vintage", price: 90 },
     ];
+
+    const handleFavoriteClick = () => {
+        navigate('/favorito');
+    };
 
     return (
         <>
@@ -61,8 +73,14 @@ function Bolsa() {
                 {products.map(product => (
                     <div key={product.id} className={Style.product_card}>
                         <div className={Style.product_image}>
-                            <img src={product.image} alt={product.name} />
-                            <span className={Style.wishlist_icon}><img src={WishlistIcon} alt="" /></span>
+                            <img 
+                                src={product.image} 
+                                alt={product.name} 
+                                onClick={() => handleProductClick(product.image)}
+                            />
+                            <span className={Style.wishlist_icon} onClick={(e) => { e.stopPropagation(); handleFavoriteClick(); }}>
+                                <img src={WishlistIcon} alt="Favoritar" />
+                            </span>          
                             <span className={Style.cart_icon}><img src={CartIcon} alt="" /></span>
                         </div>
                         <div className={Style.product_info}>

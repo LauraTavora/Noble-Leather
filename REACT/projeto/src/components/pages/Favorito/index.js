@@ -97,6 +97,8 @@ const products = [
   
 
 function Favorito() {
+
+
   return (
     <div className={style.container}>
       <header className={style.header}>
