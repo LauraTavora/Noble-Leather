@@ -7,11 +7,15 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Product {
+@Table(name = "estoque")
+public class Estoque {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
-    private String description;
-    private double price;
+
+    @OneToOne
+    @JoinColumn(name = "produto_id", unique = true, nullable = false)
+    private Produto produto;
+
+    private Integer quantidade = 0;
 }

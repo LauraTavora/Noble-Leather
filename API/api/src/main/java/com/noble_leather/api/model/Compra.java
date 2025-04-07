@@ -1,0 +1,28 @@
+package com.noble_leather.api.model;
+
+
+import jakarta.persistence.*;
+import java.util.List;
+
+@Entity
+@Table(name = "compra")
+public class Compra {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @ManyToOne
+    @JoinColumn(name = "usuario_id", nullable = false)
+    private Usuario usuario;
+
+    private Integer quantidade = 1;
+
+    @Column(name = "cep_destino", nullable = false, length = 8)
+    private String cepDestino;
+
+    @OneToMany(mappedBy = "compra")
+    private List<CompraProduto> produtos;
+
+    @OneToOne(mappedBy = "compra")
+    private Frete frete;
+}
