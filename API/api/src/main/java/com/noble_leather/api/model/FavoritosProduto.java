@@ -24,6 +24,32 @@ public class FavoritosProduto {
     @MapsId("produtoId")
     @JoinColumn(name = "produto_id")
     private Produto produto;
+
+//    Getters e Setters
+
+    public Produto getProduto() {
+        return produto;
+    }
+
+    public Favoritos getFavorito() {
+        return favorito;
+    }
+
+    public FavoritosProdutoId getId() {
+        return id;
+    }
+
+    public void setProduto(Produto produto) {
+        this.produto = produto;
+    }
+
+    public void setId(FavoritosProdutoId id) {
+        this.id = id;
+    }
+
+    public void setFavorito(Favoritos favorito) {
+        this.favorito = favorito;
+    }
 }
 
 

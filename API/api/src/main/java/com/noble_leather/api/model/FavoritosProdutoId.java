@@ -14,4 +14,23 @@ import java.io.Serializable;
 public class FavoritosProdutoId implements Serializable {
     private Long favoritoId;
     private Long produtoId;
+
+//    Getters e Setters
+
+    public Long getProdutoId() {
+        return produtoId;
+    }
+
+    public Long getFavoritoId() {
+        return favoritoId;
+    }
+
+
+    public void setProdutoId(Long produtoId) {
+        this.produtoId = produtoId;
+    }
+
+    public void setFavoritoId(Long favoritoId) {
+        this.favoritoId = favoritoId;
+    }
 }

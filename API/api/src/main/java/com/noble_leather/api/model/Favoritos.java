@@ -24,4 +24,36 @@ public class Favoritos {
     private List<FavoritosProduto> produtos;
 
     // Getters e Setters
+
+    public Integer getQuantidade() {
+        return quantidade;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public List<FavoritosProduto> getProdutos() {
+        return produtos;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setProdutos(List<FavoritosProduto> produtos) {
+        this.produtos = produtos;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public void setQuantidade(Integer quantidade) {
+        this.quantidade = quantidade;
+    }
 }

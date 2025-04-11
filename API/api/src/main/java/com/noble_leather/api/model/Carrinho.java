@@ -27,4 +27,46 @@ public class Carrinho {
     @OneToMany(mappedBy = "carrinho")
     private List<CarrinhoProduto> produtos;
 
+//    Getters e Setters
+
+    public BigDecimal getValorTotal() {
+        return valorTotal;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public Integer getQuantidade() {
+        return quantidade;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public List<CarrinhoProduto> getProdutos() {
+        return produtos;
+    }
+
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setProdutos(List<CarrinhoProduto> produtos) {
+        this.produtos = produtos;
+    }
+
+    public void setQuantidade(Integer quantidade) {
+        this.quantidade = quantidade;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public void setValorTotal(BigDecimal valorTotal) {
+        this.valorTotal = valorTotal;
+    }
 }

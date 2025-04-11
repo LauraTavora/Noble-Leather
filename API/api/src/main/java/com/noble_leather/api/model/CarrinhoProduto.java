@@ -25,5 +25,31 @@ public class CarrinhoProduto {
     @JoinColumn(name = "produto_id")
     private Produto produto;
 
+
+//    Getters e Setters
+
+    public Carrinho getCarrinho() {
+        return carrinho;
+    }
+
+    public CarrinhoProdutoId getId() {
+        return id;
+    }
+
+    public Produto getProduto() {
+        return produto;
+    }
+
+    public void setId(CarrinhoProdutoId id) {
+        this.id = id;
+    }
+
+    public void setCarrinho(Carrinho carrinho) {
+        this.carrinho = carrinho;
+    }
+
+    public void setProduto(Produto produto) {
+        this.produto = produto;
+    }
 }
 

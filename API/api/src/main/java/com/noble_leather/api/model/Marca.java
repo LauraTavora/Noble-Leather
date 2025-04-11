@@ -19,4 +19,29 @@ public class Marca {
     @Column(name = "cnpj", unique = true, nullable = false, length = 18)
     private String cnpj;
 
+//    Getters e Setters
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public String getCnpj() {
+        return cnpj;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setCnpj(String cnpj) {
+        this.cnpj = cnpj;
+    }
 }

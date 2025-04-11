@@ -47,4 +47,58 @@ public class Usuario {
 
     @OneToMany(mappedBy = "usuario")
     private List<Compra> compras;
+
+//    Getters e Setters
+
+    public String getNome() {
+        return nome;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getEndereco() {
+        return endereco;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public Boolean getCedex() {
+        return cedex;
+    }
+
+    public String getCartao() {
+        return cartao;
+    }
+
+    public List<Carrinho> getCarrinhos() {
+        return carrinhos;
+    }
+
+    public List<Compra> getCompras() {
+        return compras;
+    }
+
+    public List<Favoritos> getFavoritos() {
+        return favoritos;
+    }
+
+    public String getCep() {
+        return cep;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
 }

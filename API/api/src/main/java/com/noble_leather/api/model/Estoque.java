@@ -18,4 +18,30 @@ public class Estoque {
     private Produto produto;
 
     private Integer quantidade = 0;
+
+//    Getters e Setters
+
+    public Produto getProduto() {
+        return produto;
+    }
+
+    public Integer getQuantidade() {
+        return quantidade;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setQuantidade(Integer quantidade) {
+        this.quantidade = quantidade;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setProduto(Produto produto) {
+        this.produto = produto;
+    }
 }
