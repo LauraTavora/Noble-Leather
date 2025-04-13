@@ -10,7 +10,7 @@ function Navbar() {
                 <div className={style.icons}>
                 <div className={style.icons}>
                     <Link to="/favorito">♡</Link>
-                    <span>🛒</span>
+                    <Link to="/carrinho">🛒</Link>
                 </div>
                 </div>
             </nav>

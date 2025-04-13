@@ -43,15 +43,15 @@ function Bolsa() {
     };
 
     const products = [
-        { id: 15, image: Image15, name: "Jaqueta de couro sintético vintage", price: 90 },
-        { id: 16, image: Image16, name: "Jaqueta de couro sintético vintage", price: 90 },
-        { id: 17, image: Image17, name: "Jaqueta de couro sintético vintage", price: 90 },
-        { id: 18, image: Image18, name: "Jaqueta de couro sintético vintage", price: 90 },
-        { id: 19, image: Image19, name: "Jaqueta de couro sintético vintage", price: 90 },
-        { id: 20, image: Image20, name: "Jaqueta de couro sintético vintage", price: 90 },
-        { id: 21, image: Image21, name: "Jaqueta de couro sintético vintage", price: 90 },
-        { id: 22, image: Image22, name: "Jaqueta de couro sintético vintage", price: 90 },
-        { id: 23, image: Image23, name: "Jaqueta de couro sintético vintage", price: 90 },
+        { id: 15, image: Image15, name: "Cinto 1", price: 50 },
+        { id: 16, image: Image16, name: "Cinto 2", price: 30 },
+        { id: 17, image: Image17, name: "Cinto 3", price: 40 },
+        { id: 18, image: Image18, name: "Cinto 4", price: 80 },
+        { id: 19, image: Image19, name: "Cinto 5", price: 60 },
+        { id: 20, image: Image20, name: "Cinto 6", price: 30 },
+        { id: 21, image: Image21, name: "Cinto 7", price: 100 },
+        { id: 22, image: Image22, name: "Cinto 8", price: 120 },
+        { id: 23, image: Image23, name: "Cinto 9", price: 190 },
     ];
 
     const handleFavoriteClick = () => {

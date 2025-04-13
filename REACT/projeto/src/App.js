@@ -26,6 +26,7 @@ function App() {
         <Route path="/favorito" element={<Favorito />} /> {/* Adicionada a rota para Favorito */}
         <Route path="/favorito" element={<Favorito />} /> {/* Adicionada a rota para Favorito */}
         <Route path="/favorito" element={<Favorito />} />
+        <Route path="/carrinho" element={<Carrinho />} />
       </Routes>
       <Footer /> {/* O Footer estará disponível em todas as páginas */}
     </Router>

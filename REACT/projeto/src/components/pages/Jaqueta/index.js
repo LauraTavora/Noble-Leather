@@ -23,31 +23,31 @@ const products = [
   {
     id: 2,
     name: 'Jaqueta de couro sintético vintage',
-    price: 'R$ 90,00',
+    price: 'R$ 900,00',
     image: Jaqueta2,
   },
   {
     id: 3,
     name: 'Jaqueta de couro sintético vintage',
-    price: 'R$ 90,00',
+    price: 'R$ 300,00',
     image: Jaqueta3,
   },
   {
     id: 4,
     name: 'Jaqueta de couro sintético vintage',
-    price: 'R$ 90,00',
+    price: 'R$ 400,00',
     image: Jaqueta4,
   },
   {
     id: 5,
     name: 'Jaqueta de couro sintético vintage',
-    price: 'R$ 90,00',
+    price: 'R$ 100,00',
     image: Jaqueta5,
   },
   {
     id: 6,
     name: 'Jaqueta de couro sintético vintage',
-    price: 'R$ 90,00',
+    price: 'R$ 20,00',
     image: Jaqueta6,
   },
 ];
