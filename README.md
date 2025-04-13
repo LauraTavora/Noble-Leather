@@ -17,7 +17,13 @@ Ser a principal referência em produtos de couro no mercado, reconhecida pela qu
 - **Satisfação do Cliente**: Colocamos nossos clientes em primeiro lugar, garantindo uma experiência de compra excepcional. 😊
 - **Sustentabilidade**: Compromisso com práticas sustentáveis e responsáveis na produção de nossos produtos. 🌱
 
+
 ## Parte Técnica do Projeto
+
+### Documentação das tarefas
+Veja o link abaixo para acompananhar as tarefas feitas pelos mebros, descritas e separadas por ordem de execução:
+https://trello.com/invite/b/67d01ac7e4cf6025d42fbf66/ATTI4cc389c71254adfada17f90f35428a11F9AFEF78/noble-leather
+
 
 ### Instalação
 Siga os passos abaixo para configurar o projeto localmente:
