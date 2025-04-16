@@ -102,3 +102,19 @@
 .buyButton:hover {
     background-color: #3f2317;
 }
+.removeButton {
+    background-color: #ff4d4f;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    margin-top: 0.5rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .removeButton:hover {
+    background-color: #d9363e;
+  }
+  
+  

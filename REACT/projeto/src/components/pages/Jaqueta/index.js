@@ -11,7 +11,7 @@ import Curtida from '../../../assets/curtida.svg';
 import Loja from '../../../assets/loja.svg'; 
 import Frame from '../../../assets/Frame 12.svg'; 
 import Style from './Jaqueta.module.css';
-import foto1 from '../../../assets/image 30.svg';  // Importando a imagem
+import foto1 from '../../../assets/image 30.svg';
 
 const products = [
   {
@@ -59,10 +59,20 @@ function Jaqueta() {
     sessionStorage.setItem('imagem', image);  
     navigate('/compra');
   };
-  const handleFavoriteClick = () => {
+
+  const handleFavoriteClick = (e, product) => {
+    e.stopPropagation();
+    const favoritosAtuais = JSON.parse(localStorage.getItem('favoritos')) || [];
+
+    // Evita duplicatas
+    const jaFavoritado = favoritosAtuais.some(item => item.id === product.id);
+    if (!jaFavoritado) {
+      const novosFavoritos = [...favoritosAtuais, product];
+      localStorage.setItem('favoritos', JSON.stringify(novosFavoritos));
+    }
+
     navigate('/favorito');
   };
-  
 
   return (
     <>
@@ -86,14 +96,21 @@ function Jaqueta() {
           >
             <div className={Style.product_image}>
               <img src={product.image} alt={product.name} />
-              <span className={Style.wishlist_icon} onClick={(e) => { e.stopPropagation(); handleFavoriteClick(); }}>
+              <span 
+                className={Style.wishlist_icon} 
+                onClick={(e) => handleFavoriteClick(e, product)}
+              >
                 <img src={Curtida} alt="Favoritar" />
               </span>
-              <span className={Style.cart_icon}><img src={Loja} alt="Adicionar ao carrinho" /></span>
+              <span className={Style.cart_icon}>
+                <img src={Loja} alt="Adicionar ao carrinho" />
+              </span>
             </div>
             <div className={Style.product_info}>
               <h3>{product.name}</h3>
-              <div className={Style.stars}><img src={Estrelas} alt="Estrelas" /></div>
+              <div className={Style.stars}>
+                <img src={Estrelas} alt="Estrelas" />
+              </div>
               <p className={Style.price}>R$ <span>{product.price}</span></p>
               <div className={Style.quantity}>
                 <button>-</button>

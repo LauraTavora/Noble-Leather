@@ -8,30 +8,35 @@ import Compra from './components/pages/Compra';
 import Favorito from './components/pages/Favorito';
 import Home from './components/pages/Home';
 import Jaqueta from './components/pages/Jaqueta';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 
-function App() {
+function AppContent() {
+  const location = useLocation();
+
   return (
-    <Router>
+    <>
       <Navbar /> {/* O Navbar estará disponível em todas as páginas */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/bolsa" element={<Bolsa />} />
         <Route path="/cinto" element={<Cinto />} />
-        <Route path="/compra" element={<Compra />} /> 
+        <Route path="/compra" element={<Compra />} />
         <Route path="/jaqueta" element={<Jaqueta />} />
         <Route path="/carrinho" element={<Carrinho />} />
-        <Route path="/favorito" element={<Favorito />} /> {/* Adicionada a rota para Favorito */}
-        <Route path="/favorito" element={<Favorito />} /> {/* Adicionada a rota para Favorito */}
-        <Route path="/favorito" element={<Favorito />} /> {/* Adicionada a rota para Favorito */}
-        <Route path="/favorito" element={<Favorito />} /> {/* Adicionada a rota para Favorito */}
         <Route path="/favorito" element={<Favorito />} />
-        <Route path="/carrinho" element={<Carrinho />} />
       </Routes>
-      <Footer /> {/* O Footer estará disponível em todas as páginas */}
-    </Router>
+      {/* Exibe o Footer apenas se não estiver na página de Favoritos */}
+      {location.pathname !== '/favorito' && <Footer />}
+    </>
   );
 }
 
+function App() {
+  return (
+    <Router>
+      <AppContent />
+    </Router>
+  );
+}
 
 export default App;

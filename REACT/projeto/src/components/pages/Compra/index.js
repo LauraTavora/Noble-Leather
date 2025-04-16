@@ -17,12 +17,29 @@ function Compra() {
     useEffect(() => {
         const storedImage = sessionStorage.getItem("imagem");
         if (storedImage) {
-            setCurrentImage(storedImage);  // Define a imagem atual com a imagem armazenada
+            setCurrentImage(storedImage);
         }
     }, []);
 
     const changeImage = (newImage) => {
         setCurrentImage(newImage);
+    };
+
+    const addToCart = () => {
+        const product = {
+            id: Date.now(), // ou outro ID único
+            name: 'Jaqueta de couro sintético vintage',
+            price: 'R$ 90,00',
+            type: 'Feminino',
+            color: 'Preta',
+            image: currentImage,
+            quantity: quantity,
+        };
+
+        const existingCart = JSON.parse(localStorage.getItem('carrinho')) || [];
+        existingCart.push(product);
+        localStorage.setItem('carrinho', JSON.stringify(existingCart));
+        alert('Produto adicionado ao carrinho!');
     };
 
     return (
@@ -66,7 +83,7 @@ function Compra() {
 
                         <div className={style.buttons}>
                             <button className={style.buy}>Comprar</button>
-                            <button className={style.cart}>Carrinho</button>
+                            <button className={style.cart} onClick={addToCart}>Carrinho</button>
                         </div>
                     </div>
                 </div>
