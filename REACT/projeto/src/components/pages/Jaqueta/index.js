@@ -1,77 +1,50 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Jaqueta1 from '../../../assets/image (1).svg'; 
-import Jaqueta2 from '../../../assets/image (2).svg'; 
-import Jaqueta3 from '../../../assets/image (3).svg'; 
-import Jaqueta4 from '../../../assets/image (4).svg'; 
-import Jaqueta5 from '../../../assets/Rectangle 16 (1).svg'; 
-import Jaqueta6 from '../../../assets/image.svg'; 
-import Estrelas from '../../../assets/estrelas.svg'; 
-import Curtida from '../../../assets/curtida.svg'; 
-import Loja from '../../../assets/loja.svg'; 
-import Frame from '../../../assets/Frame 12.svg'; 
-import Style from './Jaqueta.module.css';
+import axios from 'axios';
+
+import Estrelas from '../../../assets/estrelas.svg';
+import Curtida from '../../../assets/curtida.svg';
+import Loja from '../../../assets/loja.svg';
+import Frame from '../../../assets/Frame 12.svg';
 import foto1 from '../../../assets/image 30.svg';
+import Style from './Jaqueta.module.css';
 
-const products = [
-  {
-    id: 1,
-    name: 'Jaqueta de couro sintético vintage',
-    price: 'R$ 90,00',
-    image: Jaqueta1,
-  },
-  {
-    id: 2,
-    name: 'Jaqueta de couro sintético vintage',
-    price: 'R$ 900,00',
-    image: Jaqueta2,
-  },
-  {
-    id: 3,
-    name: 'Jaqueta de couro sintético vintage',
-    price: 'R$ 300,00',
-    image: Jaqueta3,
-  },
-  {
-    id: 4,
-    name: 'Jaqueta de couro sintético vintage',
-    price: 'R$ 400,00',
-    image: Jaqueta4,
-  },
-  {
-    id: 5,
-    name: 'Jaqueta de couro sintético vintage',
-    price: 'R$ 100,00',
-    image: Jaqueta5,
-  },
-  {
-    id: 6,
-    name: 'Jaqueta de couro sintético vintage',
-    price: 'R$ 20,00',
-    image: Jaqueta6,
-  },
-];
+const userId = 1; // ajuste para vir do seu contexto de autenticação
 
-function Jaqueta() {
+export default function Jaqueta() {
   const navigate = useNavigate();
+  const [produtos, setProdutos] = useState([]);
 
-  const handleProductClick = (image) => {
-    sessionStorage.setItem('imagem', image);  
+  useEffect(() => {
+    axios
+      .get('http://localhost:8080/api/produtos')
+      .then(res => {
+        const jaquetas = res.data.filter(p =>
+          p.nome.toLowerCase().includes('jaqueta')
+        );
+        setProdutos(jaquetas);
+      })
+      .catch(err => console.error('Erro ao buscar jaquetas:', err));
+  }, []);
+
+  const handleProductClick = foto => {
+    sessionStorage.setItem('imagem', foto);
     navigate('/compra');
   };
 
-  const handleFavoriteClick = (e, product) => {
+  const handleFavoriteClick = (e, produto) => {
     e.stopPropagation();
-    const favoritosAtuais = JSON.parse(localStorage.getItem('favoritos')) || [];
-
-    // Evita duplicatas
-    const jaFavoritado = favoritosAtuais.some(item => item.id === product.id);
-    if (!jaFavoritado) {
-      const novosFavoritos = [...favoritosAtuais, product];
-      localStorage.setItem('favoritos', JSON.stringify(novosFavoritos));
-    }
-
-    navigate('/favorito');
+    axios
+      .post(
+        'http://localhost:8080/api/favoritos',
+        null,
+        { params: { usuarioId: userId, produtoId: produto.id } }
+      )
+      .then(() => {
+        // você pode mostrar um toast ou alterar o ícone
+        console.log('Favorito adicionado');
+      })
+      .catch(err => console.error('Erro ao favoritar:', err));
   };
 
   return (
@@ -88,17 +61,17 @@ function Jaqueta() {
       </nav>
 
       <section className={Style.products}>
-        {products.map((product) => (
+        {produtos.map(prod => (
           <div
-            key={product.id}
+            key={prod.id}
             className={Style.product_card}
-            onClick={() => handleProductClick(product.image)}
+            onClick={() => handleProductClick(prod.foto)}
           >
             <div className={Style.product_image}>
-              <img src={product.image} alt={product.name} />
-              <span 
-                className={Style.wishlist_icon} 
-                onClick={(e) => handleFavoriteClick(e, product)}
+              <img src={prod.foto} alt={prod.nome} />
+              <span
+                className={Style.wishlist_icon}
+                onClick={e => handleFavoriteClick(e, prod)}
               >
                 <img src={Curtida} alt="Favoritar" />
               </span>
@@ -107,11 +80,13 @@ function Jaqueta() {
               </span>
             </div>
             <div className={Style.product_info}>
-              <h3>{product.name}</h3>
+              <h3>{prod.nome}</h3>
               <div className={Style.stars}>
-                <img src={Estrelas} alt="Estrelas" />
+                <img src={Estrelas} alt="Avaliação" />
               </div>
-              <p className={Style.price}>R$ <span>{product.price}</span></p>
+              <p className={Style.price}>
+                R$ <span>{Number(prod.preco).toFixed(2)}</span>
+              </p>
               <div className={Style.quantity}>
                 <button>-</button>
                 <span>1</span>
@@ -123,11 +98,8 @@ function Jaqueta() {
       </section>
 
       <div className={Style.imagemGrande}>
-        <img src={Frame} alt="Frame" />
+        <img src={Frame} alt="Destaque" />
       </div>
-      <br /><br /><hr /><br /><br /><br />
     </>
   );
 }
-
-export default Jaqueta;

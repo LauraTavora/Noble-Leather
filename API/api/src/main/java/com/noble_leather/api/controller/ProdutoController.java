@@ -6,7 +6,7 @@ import com.noble_leather.api.service.ProdutoService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
+@CrossOrigin(origins = "http://localhost:3000") // <- AQUI
 @RestController
 @RequestMapping("/api/produtos")
 public class ProdutoController {
