@@ -1,95 +1,90 @@
 import React, { useState, useEffect } from 'react';
-import image2 from '../../../assets/image (2).svg';
-import image26 from '../../../assets/image (26).svg';
-import image27 from '../../../assets/image (27).svg';
-import image28 from '../../../assets/image (28).svg';
-import image42 from '../../../assets/image 42.svg';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import style from './Compra.module.css';
 import Navbar from '../../layout/Navbar';
 
 function Compra() {
-    const [quantity, setQuantity] = useState(1);
-    const [currentImage, setCurrentImage] = useState(image2);
+  const [quantity, setQuantity] = useState(1);
+  const [product, setProduct] = useState(null);
+  const navigate = useNavigate();
+  const usuarioId = localStorage.getItem('usuarioId');
 
-    const increaseQuantity = () => setQuantity(quantity + 1);
-    const decreaseQuantity = () => setQuantity(quantity > 1 ? quantity - 1 : 1);
+  useEffect(() => {
+    // 1) Recupera o objeto completo do produto salvo no Jaqueta.jsx
+    const stored = sessionStorage.getItem('produtoSelecionado');
+    if (!stored) {
+      alert('Nenhum produto foi selecionado');
+      return navigate('/');
+    }
+    setProduct(JSON.parse(stored));
+  }, [navigate]);
 
-    useEffect(() => {
-        const storedImage = sessionStorage.getItem("imagem");
-        if (storedImage) {
-            setCurrentImage(storedImage);
+  const increaseQuantity = () => setQuantity(q => q + 1);
+  const decreaseQuantity = () => setQuantity(q => Math.max(1, q - 1));
+
+  const handleAddToCart = async () => {
+    try {
+      await axios.post('http://localhost:8080/api/carrinho', null, {
+        params: {
+          usuarioId,
+          produtoId: product.id,
+          quantidade: quantity
         }
-    }, []);
+      });
+      alert('Produto adicionado ao carrinho!');
+      navigate('/carrinho');
+    } catch (err) {
+      console.error('Erro ao adicionar ao carrinho:', err);
+      alert('Erro ao adicionar ao carrinho.');
+    }
+  };
 
-    const changeImage = (newImage) => {
-        setCurrentImage(newImage);
-    };
+  if (!product) return null; // ou um loader
 
-    const addToCart = () => {
-        const product = {
-            id: Date.now(), // ou outro ID único
-            name: 'Jaqueta de couro sintético vintage',
-            price: 'R$ 90,00',
-            type: 'Feminino',
-            color: 'Preta',
-            image: currentImage,
-            quantity: quantity,
-        };
+  return (
+    <>
+      <Navbar />
+      <main>
+        <div className={style.product_container}>
+          <div className={style.image_section}>
+            <img src={product.foto} alt={product.nome} />
+          </div>
 
-        const existingCart = JSON.parse(localStorage.getItem('carrinho')) || [];
-        existingCart.push(product);
-        localStorage.setItem('carrinho', JSON.stringify(existingCart));
-        alert('Produto adicionado ao carrinho!');
-    };
+          <div className={style.info_section}>
+            <h2>{product.nome}</h2>
+            <div className={style.stars}>★★★★★</div>
+            <p className={style.price}>
+              R$ {Number(product.preco).toFixed(2)}
+            </p>
+            <p><strong>Tipo:</strong> {product.categoria?.genero}</p>
+            <p><strong>Cor:</strong> {product.cor}</p>
 
-    return (
-        <>
-            <Navbar />
-            <main>
-                <div className={style.product_container}>
-                    <div className={style.image_section}>
-                        <img src={currentImage} alt="Jaqueta de couro" />
-                        <div className={style.color_options}>
-                            <img src={image26} alt="Bege" onClick={() => changeImage(image26)} />
-                            <img src={image27} alt="Verde" onClick={() => changeImage(image27)} />
-                            <img src={image28} alt="Vermelha" onClick={() => changeImage(image28)} />
-                            <img src={image42} alt="Roxa" onClick={() => changeImage(image42)} />
-                        </div>
-                    </div>
+            <div className={style.sizes}>
+              <span>Tamanho:</span>
+              <button>P</button>
+              <button>M</button>
+              <button>G</button>
+            </div>
 
-                    <div className={style.info_section}>
-                        <h2>Jaqueta de couro sintético vintage</h2>
-                        <div className={style.stars}>★★★★★</div>
-                        <p className={style.price}>R$ 90,00</p>
-                        <p><strong>Tipo:</strong> Feminino</p>
-                        <p><strong>Frete:</strong> R$10,00</p>
-                        <p><strong>Marca:</strong> Uma marca <span className={style.envio}>Envio nacional</span></p>
-                        <p><strong>Data de entrega:</strong> 22/03/205</p>
-                        <p><strong>Cor:</strong> Preta</p>
+            <div className={style.quantity}>
+              <span>Quantidade:</span>
+              <button className={style.minus} onClick={decreaseQuantity}>−</button>
+              <span className={style.quantity_value}>{quantity}</span>
+              <button className={style.plus} onClick={increaseQuantity}>+</button>
+            </div>
 
-                        <div className={style.sizes}>
-                            <span>Tamanho:</span>
-                            <button>P</button>
-                            <button>M</button>
-                            <button>G</button>
-                        </div>
-
-                        <div className={style.quantity}>
-                            <span>Quantidade:</span>
-                            <button className={style.minus} onClick={decreaseQuantity}>−</button>
-                            <span className={style.quantity_value}>{quantity}</span>
-                            <button className={style.plus} onClick={increaseQuantity}>+</button>
-                        </div>
-
-                        <div className={style.buttons}>
-                            <button className={style.buy}>Comprar</button>
-                            <button className={style.cart} onClick={addToCart}>Carrinho</button>
-                        </div>
-                    </div>
-                </div>
-            </main>
-        </>
-    );
+            <div className={style.buttons}>
+              <button className={style.buy}>Comprar</button>
+              <button className={style.cart} onClick={handleAddToCart}>
+                Adicionar ao Carrinho
+              </button>
+            </div>
+          </div>
+        </div>
+      </main>
+    </>
+  );
 }
 
 export default Compra;

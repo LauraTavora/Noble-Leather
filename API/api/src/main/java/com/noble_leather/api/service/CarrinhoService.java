@@ -1,6 +1,5 @@
 package com.noble_leather.api.service;
 
-
 import com.noble_leather.api.model.*;
 import com.noble_leather.api.repository.*;
 import org.springframework.stereotype.Service;
@@ -10,6 +9,7 @@ import java.util.Optional;
 
 @Service
 public class CarrinhoService {
+
     private final CarrinhoRepository carrinhoRepository;
     private final CarrinhoProdutoRepository carrinhoProdutoRepository;
     private final ProdutoRepository produtoRepository;
@@ -18,8 +18,7 @@ public class CarrinhoService {
     public CarrinhoService(CarrinhoRepository carrinhoRepository,
                            CarrinhoProdutoRepository carrinhoProdutoRepository,
                            ProdutoRepository produtoRepository,
-                           UsuarioRepository usuarioRepository)
-    {
+                           UsuarioRepository usuarioRepository) {
         this.carrinhoRepository = carrinhoRepository;
         this.carrinhoProdutoRepository = carrinhoProdutoRepository;
         this.produtoRepository = produtoRepository;
@@ -41,7 +40,7 @@ public class CarrinhoService {
                     return carrinhoRepository.save(novoCarrinho);
                 });
 
-        // Atualiza valor total
+        // Atualiza o valor total
         BigDecimal novoTotal = carrinho.getValorTotal().add(
                 produto.getPreco().multiply(BigDecimal.valueOf(quantidade))
         );
@@ -50,7 +49,7 @@ public class CarrinhoService {
 
         carrinhoRepository.save(carrinho);
 
-        // Adiciona produto ao carrinho
+        // Adiciona o produto ao carrinho
         CarrinhoProduto carrinhoProduto = new CarrinhoProduto();
         CarrinhoProdutoId id = new CarrinhoProdutoId();
         id.setCarrinhoId(carrinho.getId());

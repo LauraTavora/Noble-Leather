@@ -27,8 +27,9 @@ export default function Jaqueta() {
       .catch(err => console.error('Erro ao buscar jaquetas:', err));
   }, []);
 
-  const handleProductClick = foto => {
-    sessionStorage.setItem('imagem', foto);
+  const handleProductClick = produto => {
+    // Salva o objeto inteiro para usar em Compra.jsx
+    sessionStorage.setItem('produtoSelecionado', JSON.stringify(produto));
     navigate('/compra');
   };
 
@@ -41,7 +42,6 @@ export default function Jaqueta() {
         { params: { usuarioId: userId, produtoId: produto.id } }
       )
       .then(() => {
-        // você pode mostrar um toast ou alterar o ícone
         console.log('Favorito adicionado');
       })
       .catch(err => console.error('Erro ao favoritar:', err));
@@ -65,7 +65,7 @@ export default function Jaqueta() {
           <div
             key={prod.id}
             className={Style.product_card}
-            onClick={() => handleProductClick(prod.foto)}
+            onClick={() => handleProductClick(prod)}
           >
             <div className={Style.product_image}>
               <img src={prod.foto} alt={prod.nome} />
